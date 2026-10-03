@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Channel Six News</title>
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bush.is-a.dev/ChannelSixNews/" />
+  <meta property="og:title" content="Channel Six News" />
+  <meta property="og:description" content="Channel Six News — Breaking coverage on the NBTF facility lawsuit, civilian protests, and exclusive interviews." />
+  <meta property="og:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
+  <meta property="og:image:width" content="1072" />
+  <meta property="og:image:height" content="612" />
+  <meta name="theme-color" content="#2563EB" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Channel Six News" />
+  <meta name="twitter:description" content="Channel Six News — Breaking coverage on the NBTF facility lawsuit, civilian protests, and exclusive interviews." />
+  <meta name="twitter:image" content="https://bush.is-a.dev/ChannelSixNews/Reports/interview003/interview003.png" />
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #FFFFFF;
+      color: #111;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .Desktop {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Blue Header Bar */
+    .Header1 {
+      width: 100%;
+      padding: 24px 64px;
+      background: linear-gradient(90deg, #3B82F6 0%, #1D4ED8 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ChannelSix {
+      color: #EFF6FF;
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+
+    .Nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .Nav a {
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: capitalize;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .Nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Headlines Section */
+    .HeadlinesContainer {
+      width: 100%;
+      max-width: 1280px;
+      padding: 0 64px;
+      margin-top: 56px;
+    }
+
+    .HeadlinesToday {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #0F172A;
+      margin-bottom: 28px;
+    }
+
+    /* Original Base Card */
+    .Card {
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .Card:hover {
+      transform: translateY(-4px);
+    }
+
+    .Card-Image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    /* Clean Lawsuit Document Thumbnail */
+    .DocThumbnail {
+      width: 100%;
+      height: 240px;
+      background: #F8FAFC;
+      border-radius: 14px;
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .DocThumbnailHeader {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .DocThumbnailTitle {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.3;
+    }
+
+    .DocThumbnailLines {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .DocThumbnailLine {
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: 3px;
+    }
+
+    .DocThumbnailFooter {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 8px;
+    }
+
+    .Card-Text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .Card-Title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #0F172A;
+    }
+
+    .Card-Subtitle {
+      color: #64748B;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* Wide Headline Card */
+    .Card-Wide {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .Card-Wide .DocThumbnail,
+    .Card-Wide .Card-Image {
+      height: 280px;
+    }
+
+    .Card-Wide .Card-Title {
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    .Card-Wide .Card-Subtitle {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* News Reports Section */
+    .ReportsSection {
+      width: 100%;
+      max-width: 1280px;
+      padding: 0 64px 100px;
+      border-top: 2px solid #F1F5F9;
+      margin-top: 64px;
+      padding-top: 48px;
+    }
+
+    .ReportsHeading {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 32px;
+    }
+
+    .ReportsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .Card-Wide {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .Card-Wide .DocThumbnail,
+      .Card-Wide .Card-Image {
+        height: 240px;
+      }
+      .Card-Wide .Card-Title {
+        font-size: 28px;
+      }
+      .ReportsGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .Header1 {
+        padding: 20px 24px;
+      }
+      .ChannelSix {
+        font-size: 36px;
+      }
+      .Nav {
+        gap: 20px;
+      }
+      .HeadlinesContainer,
+      .ReportsSection {
+        padding: 0 24px;
+      }
+      .HeadlinesToday {
+        font-size: 38px;
+      }
+      .ReportsHeading {
+        font-size: 30px;
+      }
+      .ReportsGrid {
+        grid-template-columns: 1fr;
+      }
+      .Card-Wide .Card-Title {
+        font-size: 24px;
+      }
+      .Card-Image,
+      .DocThumbnail {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="Desktop">
+    <!-- Blue Header -->
+    <header class="Header1">
+      <a href="https://bush.is-a.dev/ChannelSixNews/" class="ChannelSix">Channel Six</a>
+      <nav class="Nav">
+        <a href="https://bush.is-a.dev/ChannelSixNews/about/">About</a>
+        <a href="https://bush.is-a.dev/Contact/">Contact</a>
+        <a href="https://bush.is-a.dev/ChannelSixNews/SignIn/">Sign In</a>
+      </nav>
+    </header>
+
+    <!-- Top Section: Headlines Today -->
+    <section class="HeadlinesContainer">
+      <h1 class="HeadlinesToday">HEADLINES TODAY</h1>
+
+      <!-- Wide Lead Headline: LAWSUIT002 -->
+      <a href="Reports/LAWSUIT002/" class="Card Card-Wide">
+        <div class="DocThumbnail">
+          <div class="DocThumbnailHeader">District Court of Nevada &bull; Summons</div>
+          <div class="DocThumbnailTitle">SUMMONS IN A CIVIL ACTION: CASE NO. 26-CV-0517</div>
+          <div class="DocThumbnailLines">
+            <div class="DocThumbnailLine" style="width: 85%;"></div>
+            <div class="DocThumbnailLine" style="width: 100%;"></div>
+            <div class="DocThumbnailLine" style="width: 70%;"></div>
+          </div>
+          <div class="DocThumbnailFooter">
+            <span>Demand: $5,000,000 USD</span>
+            <span>Oct 2, 2026</span>
+          </div>
+        </div>
+        <div class="Card-Text">
+          <h2 class="Card-Title">Official Court Summons Served: Channel Six News Corp. v. Pyrowh Corp &amp; NBTF</h2>
+          <p class="Card-Subtitle">The U.S. District Court for the District of Nevada has issued a formal summons requiring Pyrowh Corporation and NBTF administration to respond within 21 days concerning human rights violations and dangerous facility conditions.</p>
+        </div>
+      </a>
+    </section>
+
+    <!-- Lower Section: News Reports -->
+    <section class="ReportsSection">
+      <h2 class="ReportsHeading">NEWS REPORTS</h2>
+
+      <div class="ReportsGrid">
+        <!-- 1. LAWSUIT001 -->
+        <a href="Reports/LAWSUIT001/" class="Card">
+          <div class="DocThumbnail">
+            <div class="DocThumbnailHeader">Channel Six News Corp. &bull; Legal</div>
+            <div class="DocThumbnailTitle">LETTER OF INTENT TO SUE: PYROWH CORP / NBTF</div>
+            <div class="DocThumbnailLines">
+              <div class="DocThumbnailLine" style="width: 85%;"></div>
+              <div class="DocThumbnailLine" style="width: 100%;"></div>
+              <div class="DocThumbnailLine" style="width: 70%;"></div>
+            </div>
+            <div class="DocThumbnailFooter">
+              <span>Demand: $5,000,000 USD</span>
+              <span>Sept 30, 2026</span>
+            </div>
+          </div>
+          <div class="Card-Text">
+            <h2 class="Card-Title">Notice of Intent to Initiate Legal Proceedings</h2>
+            <p class="Card-Subtitle">Channel Six News Corp. formally demands compensation over NBTF facility human rights concerns.</p>
+          </div>
+        </a>
+
+        <!-- 2. Interview 003: Special Task Force -->
+        <a href="Reports/interview003/" class="Card">
+          <img class="Card-Image" src="Reports/interview003/interview003.png" alt="STF [REDACTED] Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the NBTF: STF [REDACTED]</h2>
+            <p class="Card-Subtitle">Special Task Force operative on core defense, raids, and radiation safety.</p>
+          </div>
+        </a>
+
+        <!-- 3. Interview 002: Facility Director -->
+        <a href="Reports/interview002/" class="Card">
+          <img class="Card-Image" src="Reports/interview002/interview002.png" alt="Facility Director Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the NBTF: Their story</h2>
+            <p class="Card-Subtitle">The Facility Director speaks on peace, public perception, and continuing research.</p>
+          </div>
+        </a>
+
+        <!-- 4. Interview 001: The Rebellion -->
+        <a href="Reports/interview001/" class="Card">
+          <img class="Card-Image" src="Reports/interview001/interview_001.png" alt="Rebellion Interview" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">An interview with the rebellion: are they that bad?</h2>
+            <p class="Card-Subtitle">Channel Six News spoke with Maximus about origins and motives.</p>
+          </div>
+        </a>
+
+        <!-- 5. Protester 001: Field Report -->
+        <a href="Reports/Protester001/" class="Card">
+          <img class="Card-Image" src="card2.png" alt="Protesters raid and annex NBTF" />
+          <div class="Card-Text">
+            <h2 class="Card-Title">Protesters raid and annex NBTF</h2>
+            <p class="Card-Subtitle">A story of how a group of protesters raided the NBTF facility.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
