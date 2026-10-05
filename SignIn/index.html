@@ -28,7 +28,7 @@
 </head>
 <body>
   <header class="Header1">
-    <a href="https://channelsixnews.dns.army/" class="ChannelSix">Channel Six</a>
+    <a href="/" class="ChannelSix">Channel Six</a>
   </header>
   <div class="AuthCard">
     <h2 id="formTitle">Sign In</h2>
@@ -110,7 +110,7 @@
           statusMsg.className = 'StatusMessage StatusSuccess';
           statusMsg.textContent = 'Account created! Redirecting to Channel Six...';
           statusMsg.style.display = 'block';
-          setTimeout(() => { window.location.href = 'https://channelsixnews.dns.army/'; }, 1500);
+          setTimeout(() => { window.location.href = '/'; }, 1500);
         }
       } else {
         const { error } = await client.auth.signInWithPassword({ email, password });
@@ -121,7 +121,7 @@
           statusMsg.className = 'StatusMessage StatusSuccess';
           statusMsg.textContent = 'Signed in successfully! Redirecting...';
           statusMsg.style.display = 'block';
-          setTimeout(() => { window.location.href = 'https://channelsixnews.dns.army/'; }, 1000);
+          setTimeout(() => { window.location.href = '/'; }, 1000);
         }
       }
     });
